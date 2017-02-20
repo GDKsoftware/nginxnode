@@ -2,7 +2,7 @@ FROM ubuntu
 
 RUN \
   apt-get update && \
-  apt-get install -y python-software-properties software-properties-common && \
+  apt-get install -y python-software-properties software-properties-common wget zip unzip zlib1g-dev curl && \
   add-apt-repository -y ppa:nginx/stable && \
   apt-get update && \
   apt-get install -y nginx && \
