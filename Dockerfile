@@ -2,7 +2,7 @@ FROM ubuntu
 
 RUN \
   apt-get update && \
-  apt-get install -y python-software-properties && \
+  apt-get install -y python-software-properties software-properties-common && \
   add-apt-repository -y ppa:chris-lea/node.js && \
   add-apt-repository -y ppa:nginx/stable && \
   apt-get update && \
