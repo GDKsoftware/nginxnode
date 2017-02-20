@@ -1,5 +1,9 @@
 FROM ubuntu
 
+RUN \
+  apt-get update && \
+  apt-get install -y python-software-properties
+
 # Install Nginx.
 RUN \
   add-apt-repository -y ppa:nginx/stable && \
