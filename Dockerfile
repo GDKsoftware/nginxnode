@@ -2,23 +2,14 @@ FROM ubuntu
 
 RUN \
   apt-get update && \
-  apt-get install -y python-software-properties
-
-# Install Nginx.
-RUN \
+  apt-get install -y python-software-properties && \
+  add-apt-repository -y ppa:chris-lea/node.js && \
   add-apt-repository -y ppa:nginx/stable && \
   apt-get update && \
   apt-get install -y nginx && \
-  rm -rf /var/lib/apt/lists/* && \
   echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
-  chown -R www-data:www-data /var/lib/nginx
-
-# Install Node
-RUN \
-  add-apt-repository -y ppa:chris-lea/node.js && \
-  apt-get update && \
-  apt-get -y install \
-          nodejs && \
+  chown -R www-data:www-data /var/lib/nginx && \
+  apt-get -y install nodejs && \
   rm -rf /var/lib/apt/lists/*
 
 # Define mountable directories.
